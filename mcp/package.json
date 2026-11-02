@@ -5,9 +5,9 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsx src/index.ts",
-    "start": "node dist/index.js",
+    "build": "node init && tsc",
+    "dev": "node init && tsx src/index.ts",
+    "start": "node init && node dist/index.js",
     "type-check": "tsc --noEmit",
     "lint": "echo \"no lint configured\"",
     "test": "vitest run tests/unit",
@@ -18,7 +18,8 @@
     "test:escrow": "tsx --test tests/escrow-tools.test.ts",
     "test:boundary": "tsx --test tests/trust-boundary.test.ts",
     "docs:env": "node scripts/env-table.mjs --write",
-    "docs:env:check": "node scripts/env-table.mjs"
+    "docs:env:check": "node scripts/env-table.mjs",
+    "check:secrets": "bash scripts/check-secrets.sh"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.0",
